@@ -10,9 +10,12 @@ public class QuestionPanel : MonoBehaviour
 
     private Dropdown ansDropdown;
     private Button submitButton;
+    private LevelManager levelManager;
 
     void Start()
     {
+        levelManager = FindObjectOfType<LevelManager>();
+
         ansDropdown = GetComponentInChildren<Dropdown>();
         ansDropdown.onValueChanged.AddListener(delegate
         {
@@ -40,6 +43,8 @@ public class QuestionPanel : MonoBehaviour
     void SubmitAnswer(Button btn)
     {
         print("Answer: " + selectedValue.ToString());
+        // IF Answer correct...
+        levelManager.CorrectAnswer();
     }
 
 }
