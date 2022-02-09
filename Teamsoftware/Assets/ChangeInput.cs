@@ -8,6 +8,7 @@ public class ChangeInput : MonoBehaviour
 {
     EventSystem system;
     public Selectable firstInput;
+    public Button submitButton;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +31,11 @@ public class ChangeInput : MonoBehaviour
             if(next != null) {
             next.Select();
             }
+            //Double check this
+        else if(Input.GetKeyDown(KeyCode.Return)){
+            submitButton.onClick.Invoke();
+            Debug.Log("Button pressed!");
+        }
         }    
     }
 }
