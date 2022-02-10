@@ -11,12 +11,12 @@ public class PlayfabManager : MonoBehaviour
     [Header("UI")]
     public Text messageText;
     //Following email as tutorial (change later)
-    public InputField emailInput;
+    public InputField usernameInput;
     public InputField passwordInput;
     // Register/login/ResetPassword
     public void RegisterButton() {
         var request = new RegisterPlayFabUserRequest {
-        Email = emailInput.text,
+        Username = usernameInput.text,
         Password = passwordInput.text,
         RequireBothUsernameAndEmail = false
         };
@@ -27,15 +27,21 @@ public class PlayfabManager : MonoBehaviour
     void OnRegisterSuccess(RegisterPlayFabUserResult result) {
         messageText.text = "Registered and logged in!";
     }
+    
+    //Not sure if this is working
     void OnError(PlayFabError error) {
         messageText.text = error.ErrorMessage;
         Debug.Log(error.GenerateErrorReport());
     }
     
 
+    public void LoginButton(){
 
+    }
 
+    public void ResetPasswordButton() {
 
+    }
 
 
     // Start is called before the first frame update
