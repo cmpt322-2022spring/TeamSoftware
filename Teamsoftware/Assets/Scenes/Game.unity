@@ -402,6 +402,9 @@ MonoBehaviour:
   correctAnswerPanel: {fileID: 1171288902}
   backrgoundSpeed: 0.02
   backgroundRenderer: {fileID: 1876630698}
+  questionPanelTime: 1
+  questionId: 0
+  questions: []
 --- !u!4 &196598855
 Transform:
   m_ObjectHideFlags: 0
@@ -1051,7 +1054,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &833066690
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1127,6 +1130,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectedValue: 0
+  question:
+    questionNumber: 0
+    questionContent: 
+    answerOptions: 
+    answer: 0
+  questionTitleTxt: {fileID: 557066727}
+  questionBodyTxt: {fileID: 147890990}
+  answersTxt: {fileID: 1058278469}
 --- !u!1 &890276847
 GameObject:
   m_ObjectHideFlags: 0
@@ -1432,11 +1443,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8678aaa88cee99458e30994b330c42d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentQuestion: 0
   questions:
-  - questionNumber: 1
+  - questionNumber: 0
     questionContent: What is 10 + 12?
     answerOptions: 16000000200000001400000015000000
     answer: 0
+  - questionNumber: 1
+    questionContent: What is 20 - 12?
+    answerOptions: 090000000a000000080000000c000000
+    answer: 2
 --- !u!4 &1082204025
 Transform:
   m_ObjectHideFlags: 0
@@ -2598,7 +2614,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 196598854}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
-        m_MethodName: ContinueButton
+        m_MethodName: ShowQuestion
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -5,6 +5,7 @@ using UnityEngine;
 public class QuestionData : MonoBehaviour
 {
 
+    public int currentQuestion = 0;
     public List<Question> questions = new List<Question>();
 
     // Start is called before the first frame update
@@ -18,4 +19,7 @@ public class QuestionData : MonoBehaviour
     {
         
     }
+
+
+
 }

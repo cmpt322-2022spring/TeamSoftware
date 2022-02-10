@@ -6,11 +6,19 @@ using UnityEngine.UI;
 public class QuestionPanel : MonoBehaviour
 {
 
+    // Value from the question panel
     public int selectedValue = 0;
 
+    // Answering quesions
     private Dropdown ansDropdown;
     private Button submitButton;
+
+    // Question information
     private LevelManager levelManager;
+    public Question question;
+    public Text questionTitleTxt;
+    public Text questionBodyTxt;
+    public Text answersTxt;
 
     void Start()
     {
@@ -45,6 +53,27 @@ public class QuestionPanel : MonoBehaviour
         print("Answer: " + selectedValue.ToString());
         // IF Answer correct...
         levelManager.CorrectAnswer();
+    }
+
+    void OnEnable()
+    {
+        if (levelManager == null)
+        {
+            levelManager = FindObjectOfType<LevelManager>();
+        }
+        print(levelManager.questionId);
+        question = levelManager.questions[levelManager.questionId];
+        levelManager.questionId++;
+        ImplementNextQuestion();
+    }
+
+    /// <summary>
+    /// Implements the next question by updating the question panel in the game
+    /// </summary>
+    void ImplementNextQuestion()
+    {
+        questionTitleTxt.text = "Math Question #" + question.questionNumber.ToString();
+
     }
 
 }
