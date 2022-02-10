@@ -53,6 +53,7 @@ public class QuestionPanel : MonoBehaviour
         print("Answer: " + selectedValue.ToString());
         // IF Answer correct...
         levelManager.CorrectAnswer();
+        // ElSE...
     }
 
     void OnEnable()
@@ -61,9 +62,9 @@ public class QuestionPanel : MonoBehaviour
         {
             levelManager = FindObjectOfType<LevelManager>();
         }
-        print(levelManager.questionId);
+        // print(levelManager.questionId);
         question = levelManager.questions[levelManager.questionId];
-        levelManager.questionId++;
+        levelManager.IncrementQuestion();
         ImplementNextQuestion();
     }
 
@@ -73,7 +74,9 @@ public class QuestionPanel : MonoBehaviour
     void ImplementNextQuestion()
     {
         questionTitleTxt.text = "Math Question #" + question.questionNumber.ToString();
-
+        questionBodyTxt.text = "Answer the following question: \n\nWhat is " + question.questionContent + "?";
+        answersTxt.text = "A) " + question.answerOptions[0].ToString() + "\nB) " + question.answerOptions[1].ToString() +
+            "\nC) " + question.answerOptions[2].ToString() + "\nD) " + question.answerOptions[3].ToString();
     }
 
 }

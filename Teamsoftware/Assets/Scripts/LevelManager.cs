@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
@@ -21,9 +22,16 @@ public class LevelManager : MonoBehaviour
     public int questionId = 0;
     public List<Question> questions = new List<Question>();
 
+    // Bools
+    public bool finalQuestion;
+
+    // Win and lose screens
+    public GameObject winScreen;
+
     void Start()
     {
         questionPanel.SetActive(false);
+        winScreen.SetActive(false);
         ShowQuestion();
         questions = FindObjectOfType<QuestionData>().questions;
     }
@@ -31,17 +39,20 @@ public class LevelManager : MonoBehaviour
     void Update()
     {
         MoveBackground();
-        if (questionPanelTimer > 0)
+        if (!finalQuestion)
         {
-            if (questionPanel.activeSelf)
+            if (questionPanelTimer > 0)
             {
-                questionPanel.SetActive(false);
+                if (questionPanel.activeSelf)
+                {
+                    questionPanel.SetActive(false);
+                }
+                questionPanelTimer -= Time.deltaTime;
             }
-            questionPanelTimer -= Time.deltaTime;
-        }
-        else
-        {
-            questionPanel.SetActive(true);
+            else
+            {
+                questionPanel.SetActive(true);
+            }
         }
     }
 
@@ -53,13 +64,41 @@ public class LevelManager : MonoBehaviour
     public void ShowQuestion()
     {
         correctAnswerPanel.SetActive(false);
-        // activate question panel in a minute = true
-        questionPanelTimer = questionPanelTime;
+
+        if (finalQuestion)
+        {
+            questionPanel.SetActive(false);
+            winScreen.SetActive(true);
+        }
+        else
+        {
+            questionPanelTimer = questionPanelTime;
+        }
+        
     }
 
     public void CorrectAnswer()
     {
         correctAnswerPanel.SetActive(true);
+    }
+
+    public void IncrementQuestion()
+    {
+        if (questionId < questions.Count - 1)
+        {
+            questionId++;
+        }
+        else
+        {
+            questionId++;
+            finalQuestion = true;
+        }
+
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
 }
