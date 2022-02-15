@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DevAccountEmail: mes1002@westminstercollege.edu
   DevAccountToken: chw1bsc3zdpsoinc7wpati8f7dcfxr4cmtoy17jepd7o59kohiebqrbw9i8g4rszz144zq1ib5tn7jn4h1gwctzmgfhmnxjcz7qkemdqn4tsr7pzmz75iqk4oqg45ajdeky3sourxbkxkqu7bygd8c7u1yr74mxs6m61me5fm4mkzw7aqq4p5tm5bnq7hegy1qu78i3g
-  SelectedStudio: 
+  SelectedStudio: _OVERRIDE_
   SdkPath: Assets/PlayFabSDK
   EdExPath: 
   LocalCloudScriptPath: 
   PanelIsShown: 0
-  curMainMenuIdx: 3
+  curMainMenuIdx: 1
   curSubMenuIdx: 0
