@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
@@ -22,11 +23,17 @@ public class LevelManager : MonoBehaviour
     public int questionId = 0;
     public List<Question> questions = new List<Question>();
 
-    // Bools
+    // Flags for questions
     public bool finalQuestion;
 
     // Win and lose screens
     public GameObject winScreen;
+
+    // Player Movement
+    public Transform player;
+    public int actualPos = 3;
+    public int newPos = 3;
+    public List<Transform> positions = new List<Transform>();
 
     void Start()
     {
@@ -54,6 +61,14 @@ public class LevelManager : MonoBehaviour
                 questionPanel.SetActive(true);
             }
         }
+
+        // If we are not in the actual pos...
+        // ... Move to the new pos
+        if (actualPos != newPos)
+        {
+            // player.position = Vector3.MoveTowards(player)
+        }
+
     }
 
     void MoveBackground()
@@ -77,11 +92,27 @@ public class LevelManager : MonoBehaviour
         
     }
 
-    public void CorrectAnswer()
+    public void ShowAnswerPanel(bool correctAnswer)
     {
         correctAnswerPanel.SetActive(true);
+        if (correctAnswer)
+        {
+            Text answerTitle = GameObject.Find("AnswerTitle").GetComponent<Text>();
+            answerTitle.text = "Correct!";
+            answerTitle.color = Color.green;
+
+        }
+        else
+        {
+            Text answerTitle = GameObject.Find("AnswerTitle").GetComponent<Text>();
+            answerTitle.text = "Incorrect!";
+            answerTitle.color = Color.red;
+        }
     }
 
+    /// <summary>
+    /// We need to do it this way to prevent out of bounds error
+    /// </summary>
     public void IncrementQuestion()
     {
         if (questionId < questions.Count - 1)
@@ -99,6 +130,11 @@ public class LevelManager : MonoBehaviour
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void ChangePos(int _pos)
+    {
+        newPos += _pos;
     }
 
 }
