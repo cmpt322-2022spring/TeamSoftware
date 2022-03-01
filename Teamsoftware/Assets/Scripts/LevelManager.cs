@@ -29,6 +29,8 @@ public class LevelManager : MonoBehaviour
     // Win and lose screens
     public GameObject winScreen;
     public GameObject loseScreen;
+    public int questionsCorrect;
+    public Text winProgress;
 
     // Player Movement
     public Transform player;
@@ -107,6 +109,9 @@ public class LevelManager : MonoBehaviour
         {
             questionPanel.SetActive(false);
             winScreen.SetActive(true);
+            winProgress = GameObject.Find("WinProgress").GetComponent<Text>();
+            winProgress.text = "Great Job! You Win! \n\nQuestions Correct: " +
+                questionsCorrect.ToString() + "/" + (questions.Count).ToString();   
         }
         else
         {
@@ -124,14 +129,20 @@ public class LevelManager : MonoBehaviour
         correctAnswerPanel.SetActive(true);
         if (correctAnswer)
         {
+            // Increment questions correct
+            questionsCorrect += 1;
+            // Change pos to increase by 1
             ChangePos(1);
+            // Set answer title text to correct and color to green
             Text answerTitle = GameObject.Find("AnswerTitle").GetComponent<Text>();
             answerTitle.text = "Correct!";
             answerTitle.color = Color.green;
         }
         else
         {
+            // Change pos to decrease by 1
             ChangePos(-1);
+            // Set answer title text to Incorrect and color to red
             Text answerTitle = GameObject.Find("AnswerTitle").GetComponent<Text>();
             answerTitle.text = "Incorrect!";
             answerTitle.color = Color.red;
