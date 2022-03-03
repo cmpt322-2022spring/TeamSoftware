@@ -27,6 +27,7 @@ public class ChangeInput : MonoBehaviour
             }
         }
         else if(Input.GetKeyDown(KeyCode.Tab)){
+            
             Selectable next = system.currentSelectedGameObject.GetComponent<Selectable>().FindSelectableOnDown();
             if(next != null) {
             next.Select();
