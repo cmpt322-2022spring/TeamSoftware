@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 public class LoginScript : MonoBehaviour
 {
     public void GoToRegister()
@@ -9,3 +10,4 @@ public class LoginScript : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 }
+ 
