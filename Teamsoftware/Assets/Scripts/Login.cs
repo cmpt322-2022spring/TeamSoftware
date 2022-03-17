@@ -28,9 +28,10 @@ public class Login : MonoBehaviour
         UnityWebRequest www = UnityWebRequest.Post("http://localhost/sqlconnect/login.php", form);
         yield return www.SendWebRequest();
         
-        if(www.downloadHandler.text == "0"){
+        if(www.downloadHandler.text[0] == '0'){
             DBmanager.username = nameField.text;
-            //DBmanager.score = int.Parse(www.downloadHandler.text.Split('\t')[1]);
+           //Gives indes out of bounds error, need to fix
+           // DBmanager.score = int.Parse(www.downloadHandler.text.Split('\t')[1]);
             UnityEngine.SceneManagement.SceneManager.LoadScene(2);
         }
 

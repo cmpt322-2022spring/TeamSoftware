@@ -155,10 +155,10 @@ RectTransform:
   m_Father: {fileID: 1845229970}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -0.24973}
-  m_SizeDelta: {x: 638, y: 359.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &35416847
 MonoBehaviour:
@@ -1529,9 +1529,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625c4075285f1b242b5416fb30886901, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  messageText: {fileID: 0}
-  usernameInput: {fileID: 0}
-  passwordInput: {fileID: 0}
 --- !u!114 &1845229972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1544,6 +1541,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a87849438f5c9e842bfbceabaf096707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerDisplay: {fileID: 0}
 --- !u!114 &1845229973
 MonoBehaviour:
   m_ObjectHideFlags: 0
