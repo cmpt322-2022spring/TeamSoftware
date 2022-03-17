@@ -30,8 +30,11 @@ public class Login : MonoBehaviour
         
         if(www.downloadHandler.text[0] == '0'){
             DBmanager.username = nameField.text;
-           //Gives indes out of bounds error, need to fix
-           // DBmanager.score = int.Parse(www.downloadHandler.text.Split('\t')[1]);
+           //Gives index out of bounds error, need to fix
+           //DBmanager.score = int.Parse(www.downloadHandler.text.Split('\t')[1]);
+           //DBmanager.score = www.downloadHandler.text[1];
+           //print(DBmanager.score);
+           //print(DBmanager.username);
             UnityEngine.SceneManagement.SceneManager.LoadScene(2);
         }
 
