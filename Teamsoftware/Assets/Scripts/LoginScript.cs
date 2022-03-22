@@ -7,7 +7,7 @@ public class LoginScript : MonoBehaviour
 {
     public Text playerDisplay;
     public Text scoreDisplay;
-    public Button logoutButton;
+   
     private void Start() 
     {
         print("pablo");
@@ -17,12 +17,7 @@ public class LoginScript : MonoBehaviour
         }
         
     }
-    /*private void Awake() {
-    if(DBmanager.username == null) {
-            UnityEngine.SceneManagement.SceneManager.LoadScene(2);
-        }
-    }
-    */
+    
     public void GoToRegister()
     {
         SceneManager.LoadScene(1);
