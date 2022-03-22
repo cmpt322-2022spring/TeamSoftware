@@ -9,7 +9,7 @@ public class Login : MonoBehaviour
     
     public InputField nameField;
     public InputField passwordField;
-    public Text messageText;
+    //public Text messageText;
     public Button submitButton;
 
     public void CallLogin() {
@@ -31,9 +31,10 @@ public class Login : MonoBehaviour
         if(www.downloadHandler.text[0] == '0'){
             DBmanager.username = nameField.text;
            //Gives index out of bounds error, need to fix
-           //DBmanager.score = int.Parse(www.downloadHandler.text.Split('\t')[1]);
-           //DBmanager.score = www.downloadHandler.text[1];
-           //print(DBmanager.score);
+          // DBmanager.score = int.Parse(www.downloadHandler.text.Split('\t')[0]);
+            print(DBmanager.score);
+           DBmanager.score = www.downloadHandler.text[1];
+           print(DBmanager.score);
            //print(DBmanager.username);
             UnityEngine.SceneManagement.SceneManager.LoadScene(2);
         }
@@ -46,5 +47,10 @@ public class Login : MonoBehaviour
 
     public void VerifyInputs(){
         submitButton.interactable = (nameField.text.Length >= 4 && passwordField.text.Length >=4);
+    }
+
+    //Logout test
+    public void logOut(){
+        DBmanager.LogOut();
     }
 }
