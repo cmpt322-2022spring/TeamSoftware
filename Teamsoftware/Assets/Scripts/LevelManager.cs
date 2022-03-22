@@ -82,6 +82,11 @@ public class LevelManager : MonoBehaviour
             }
         }
 
+        if (actualPos == 0)
+        {
+            player.gameObject.SetActive(false);
+        }
+
         if (newPos == 0 && !loseScreen.activeSelf)
         {
             loseScreen.SetActive(true);
