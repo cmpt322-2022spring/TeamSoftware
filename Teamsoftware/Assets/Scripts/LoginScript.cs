@@ -10,7 +10,7 @@ public class LoginScript : MonoBehaviour
    
     private void Start() 
     {
-        print("pablo");
+        
         if(DBmanager.LoggedIn){
             playerDisplay.text = "Player: " + DBmanager.username;
             scoreDisplay.text = "Score: " + DBmanager.score;
