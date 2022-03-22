@@ -33,10 +33,10 @@ public class Login : MonoBehaviour
            //Gives index out of bounds error, need to fix
           // DBmanager.score = int.Parse(www.downloadHandler.text.Split('\t')[0]);
             print(DBmanager.score);
-           DBmanager.score = www.downloadHandler.text[1];
+           DBmanager.score = www.downloadHandler.text[1] - 48;
            print(DBmanager.score);
            //print(DBmanager.username);
-            UnityEngine.SceneManagement.SceneManager.LoadScene(2);
+            UnityEngine.SceneManagement.SceneManager.LoadScene(3);
         }
 
         else {

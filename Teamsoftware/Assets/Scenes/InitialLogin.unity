@@ -180,7 +180,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 38eae46ff4ce7cc4ba281482dfb65942, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1d05c8ac98e148941ad27cc741bad549, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1542,6 +1542,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerDisplay: {fileID: 0}
+  scoreDisplay: {fileID: 0}
 --- !u!114 &1845229973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1556,7 +1557,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameField: {fileID: 1197297891}
   passwordField: {fileID: 1560526630}
-  messageText: {fileID: 0}
   submitButton: {fileID: 1347591312}
 --- !u!1 &1977389833
 GameObject:

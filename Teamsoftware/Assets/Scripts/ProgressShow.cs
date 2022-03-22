@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class ProgressShow : MonoBehaviour
 {
 
@@ -27,5 +27,8 @@ public class ProgressShow : MonoBehaviour
     public void BackToMainStudent()
     {
         progressPage.GetComponent<RectTransform>().anchoredPosition = new Vector2(500f, 500f);
+    }
+    public void StartGameScene() {
+        SceneManager.LoadScene(4);
     }
 }
