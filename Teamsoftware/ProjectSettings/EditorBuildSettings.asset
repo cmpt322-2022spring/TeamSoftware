@@ -5,10 +5,21 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
+<<<<<<< HEAD
     path: Assets/Scenes/Game.unity
     guid: 54cbf9fbb80f590449d3b04dffd43bb4
+=======
+    path: Assets/Scenes/InitialLogin.unity
+    guid: c941861c2f6c5c741a2ac06a525f6dba
+  - enabled: 1
+    path: Assets/Scenes/registrationMenu.unity
+    guid: 14e14c2a47850f94c905c7583efadeba
+  - enabled: 1
+    path: Assets/Scenes/TestMenu.unity
+    guid: 38a0d2d8bfc7e4c40880253130b3f7f0
+>>>>>>> loginPage
   m_configObjects: {}
