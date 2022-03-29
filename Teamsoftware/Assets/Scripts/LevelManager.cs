@@ -181,6 +181,14 @@ public class LevelManager : MonoBehaviour
     }
 
     /// <summary>
+    /// Returns the player to the main menu
+    /// </summary>
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(3);
+    }
+
+    /// <summary>
     /// Changes the new pos of the player
     /// </summary>
     /// <param name="_pos">Pos to change the newPos by (-1 or +1 ONLY)</param>
