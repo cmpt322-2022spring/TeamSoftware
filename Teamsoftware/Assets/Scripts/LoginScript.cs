@@ -22,5 +22,9 @@ public class LoginScript : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
+    public void GoToTeacher()
+    {
+        SceneManager.LoadScene(5);
+    }
 }
  
