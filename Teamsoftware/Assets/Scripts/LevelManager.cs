@@ -32,6 +32,9 @@ public class LevelManager : MonoBehaviour
     public int questionsCorrect;
     public Text winProgress;
 
+    // Pause System
+    public GameObject pauseScreen;
+
     // Player Movement
     public Transform player;
     public float moveSpeed = 10f;
@@ -93,6 +96,12 @@ public class LevelManager : MonoBehaviour
             correctAnswerPanel.GetComponentInChildren<Button>().interactable = false;
         }
 
+        // Pause Game with "P"
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            PauseGame();
+        }
+
     }
 
     /// <summary>
@@ -116,13 +125,13 @@ public class LevelManager : MonoBehaviour
             winScreen.SetActive(true);
             winProgress = GameObject.Find("WinProgress").GetComponent<Text>();
             winProgress.text = "Great Job! You Win! \n\nQuestions Correct: " +
-                questionsCorrect.ToString() + "/" + (questions.Count).ToString();   
+                questionsCorrect.ToString() + "/" + (questions.Count).ToString();
         }
         else
         {
             questionPanelTimer = questionPanelTime;
         }
-        
+
     }
 
     /// <summary>
@@ -168,7 +177,6 @@ public class LevelManager : MonoBehaviour
             questionId++;
             finalQuestion = true;
         }
-
     }
 
     /// <summary>
@@ -177,6 +185,10 @@ public class LevelManager : MonoBehaviour
     /// </summary>
     public void Restart()
     {
+        if (Time.timeScale == 0)
+        {
+            Time.timeScale = 1;
+        }
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
@@ -185,7 +197,29 @@ public class LevelManager : MonoBehaviour
     /// </summary>
     public void MainMenu()
     {
+        if (Time.timeScale == 0)
+        {
+            Time.timeScale = 1;
+        }
         SceneManager.LoadScene(3);
+    }
+
+    /// <summary>
+    /// Pauses the game and sets the pause screen to be active
+    /// </summary>
+    public void PauseGame()
+    {
+        pauseScreen.SetActive(true);
+        Time.timeScale = 0;
+    }
+
+    /// <summary>
+    /// Unpauses the game and sets the pause screen to be inactive
+    /// </summary>
+    public void UnPauseGame()
+    {
+        Time.timeScale = 1;
+        pauseScreen.SetActive(false);
     }
 
     /// <summary>
