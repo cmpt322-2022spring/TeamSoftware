@@ -14,6 +14,10 @@ public class LogOut : MonoBehaviour
             DBmanager.LogOut();
             SceneManager.LoadScene(0); 
     }
+    public void loggingOutTeach() {
+         DBmanagerTeach.LogOut();
+         SceneManager.LoadScene(0);
+    }
 
     
    

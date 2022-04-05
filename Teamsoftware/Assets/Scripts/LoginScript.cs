@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class LoginScript : MonoBehaviour
 {
     public Text playerDisplay;
+    //public Text teacherDisplay;
     public Text scoreDisplay;
    
     private void Start() 
@@ -16,11 +17,19 @@ public class LoginScript : MonoBehaviour
             scoreDisplay.text = "Score: " + DBmanager.score;
         }
         
+       /* if(DBmanagerTeach.LoggedInTeach){
+            teacherDisplay.text = "Teacher: " + DBmanagerTeach.usernameTeach;
+        }
+        */
     }
     
     public void GoToRegister()
     {
         SceneManager.LoadScene(1);
+    }
+    public void GoToRegisterTeach()
+    {
+        SceneManager.LoadScene(7);
     }
     public void GoToTeacher()
     {
