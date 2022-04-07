@@ -49,6 +49,6 @@ public class LoginTeacher : MonoBehaviour
 
     //Logout test
     public void logOut(){
-        DBmanager.LogOut();
+        DBmanagerTeach.LogOut();
     }
 }
