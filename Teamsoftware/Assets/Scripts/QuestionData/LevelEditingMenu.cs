@@ -7,12 +7,12 @@ public class LevelEditingMenu : MonoBehaviour
 
     public GameObject levelSelectPanel;
     public GameObject levelEditingPanel;
-    private QuestionData questionData;
+    private LevelEditQuestions editQuestions;
 
     // Start is called before the first frame update
     void Start()
     {
-        questionData = levelEditingPanel.GetComponent<QuestionData>();
+        editQuestions = levelEditingPanel.GetComponent<LevelEditQuestions>();
     }
 
     // Update is called once per frame
@@ -24,7 +24,7 @@ public class LevelEditingMenu : MonoBehaviour
     public void EditLevel(int levelID)
     {
         levelEditingPanel.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
-        questionData.ChangeLevelToEdit(levelID);
+        editQuestions.ChangeLevelToEdit(levelID);
     }
 
     public void LevelSelectMenu()

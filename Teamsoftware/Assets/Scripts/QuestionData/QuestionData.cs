@@ -19,30 +19,13 @@ public class QuestionData : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (questionPanel != null)
-        {
-            questionPanel.SetActive(false);
-        }
+
     }
 
     // Update is called once per frame
     void Update()
     {
         
-    }
-
-    public void ChangeLevelToEdit(int levelId)
-    {
-        currentLevel = levelId;
-        levelText.text = "Level: " + currentLevel.ToString();
-    }
-
-    public void ChangeQuestionToEdit()
-    {
-        if (questionPanel != null)
-        {
-            questionPanel.SetActive(true);
-        }
     }
 
 
