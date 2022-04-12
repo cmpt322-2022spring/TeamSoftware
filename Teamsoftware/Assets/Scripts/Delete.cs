@@ -9,7 +9,8 @@ public class Delete : MonoBehaviour
     
     public InputField deleteField;
     public Text messageText;
-    public Button submitButton;
+    public Button temp;
+    public Dropdown dropdown;
 
     public void CallDelete() {
         StartCoroutine(deletePlayer());
@@ -30,16 +31,22 @@ public class Delete : MonoBehaviour
             Debug.Log("User login failed. Error #" + www.downloadHandler.text);
         }
 
-        else if(www.downloadHandler.text[0] == ';'){
+        
+        else {
             //stores the data in an array separeted by ";"
+            print(www.downloadHandler.text[0]);
             string itemsDataString = www.downloadHandler.text;
             string[] dropdownDelete = itemsDataString.Split(';');
-        
-        Dropdown.Destroy;
-        foreach (string str in wwwItems) {
-             Delete.options.Add (new Dropdown.OptionData (str));
+            print(dropdownDelete[0]);
+        dropdown.ClearOptions();
+        foreach (string str in dropdownDelete) {
+            int i = 0;
+             dropdown.options.Add (new Dropdown.OptionData (str));
+            print(dropdownDelete[i]);
+            i++;        
          }
             messageText.text = "Student removed";
+
         }
     }
 
