@@ -151,6 +151,8 @@ public class LevelManager : MonoBehaviour
             Text answerTitle = GameObject.Find("AnswerTitle").GetComponent<Text>();
             answerTitle.text = "Correct!";
             answerTitle.color = Color.green;
+            // Play Success Sound
+            FindObjectOfType<SoundController>().PlaySuccessClip();
         }
         else
         {
@@ -243,6 +245,14 @@ public class LevelManager : MonoBehaviour
         {
             print("ERROR! _pos must be +1 or -1 ONLY!");
         }
+    }
+
+    /// <summary>
+    /// Loads the next level in the sequence, and should be simply deactivated in the final level
+    /// </summary>
+    public void LoadNextLevel(int _level)
+    {
+        SceneManager.LoadScene(_level);
     }
 
 }

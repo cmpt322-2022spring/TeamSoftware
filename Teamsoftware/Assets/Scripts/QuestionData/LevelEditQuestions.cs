@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[System.Serializable]
 public class LevelEditQuestions : MonoBehaviour
 {
     [Header("Level Selecting")]
@@ -16,26 +15,14 @@ public class LevelEditQuestions : MonoBehaviour
     public List<Question> questionsLevel1 = new List<Question>();
     public List<Question> questionsLevel2 = new List<Question>();
 
-    [Header("Saving Test")]
-    public string playerName;
-    public int lives;
-    public float health;
 
-    public string SaveToString()
-    {
-        return JsonUtility.ToJson(this);
-    }
-    // Given:
-    // playerName = "Dr Charles"
-    // lives = 3
-    // health = 0.8f
-    // SaveToString returns:
-    // {"playerName":"Dr Charles","lives":3,"health":0.8}
 
     // Start is called before the first frame update
     void Start()
     {
-        SaveToString();
+        //List<Question> questionsLevel1 = JsonUtility.FromJson<List<Question>>(json1);
+        //List<Question> questionsLevel2 = JsonUtility.FromJson<List<Question>>(json2);
+
         if (questionPanel != null)
         {
             questionPanel.SetActive(false);
