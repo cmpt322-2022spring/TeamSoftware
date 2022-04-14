@@ -13,20 +13,21 @@ public class DropDownMethod : MonoBehaviour
     void Start()
     {
         //Post 
-        StartCoroutine(GetRequest("http://localhost/sqlconnect/delete.php"));
+        StartCoroutine(GetRequest("http://localhost/sqlconnect/dropdown.php"));
     }
 
     IEnumerator GetRequest(string uri){
         UnityWebRequest www = UnityWebRequest.Get(uri);
         yield return www.SendWebRequest();
         string itemsDataString = www.downloadHandler.text;
-        List<string> dropdownOpt = new List<string>(itemsDataString.Split(','));
-        print(itemsDataString);
+        List<string> dropdownOpt = new List<string>(itemsDataString.Split(';'));
+        
         _dropDown.ClearOptions();   
-
         _dropDown.AddOptions(dropdownOpt);
 
     }
-    // Update is called once per frame
-    
+
+    public void CallRequest(){
+        StartCoroutine(GetRequest("http://localhost/sqlconnect/dropdown.php"));
+    }
 }

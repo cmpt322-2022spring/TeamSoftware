@@ -9,8 +9,12 @@ public class Delete : MonoBehaviour
     
     public InputField deleteField;
     public Text messageText;
-    public Button temp;
-    public Dropdown dropdown;
+    public Button deleteButton;
+    private DropDownMethod dropDownMethod;
+
+    private void Start() {
+        dropDownMethod = FindObjectOfType<DropDownMethod>();
+    }
 
     public void CallDelete() {
         StartCoroutine(deletePlayer());
@@ -33,31 +37,16 @@ public class Delete : MonoBehaviour
 
         
         else {
-            //stores the data in an array separeted by ";"
-            print(www.downloadHandler.text[0]);
-            string itemsDataString = www.downloadHandler.text;
-            string[] dropdownDelete = itemsDataString.Split(';');
-            print(dropdownDelete[0]);
-        dropdown.ClearOptions();
-        foreach (string str in dropdownDelete) {
-            int i = 0;
-             dropdown.options.Add (new Dropdown.OptionData (str));
-            print(dropdownDelete[i]);
-            i++;        
-         }
-            messageText.text = "Student removed";
-
-        }
+            Debug.Log(www.downloadHandler.text);
+            messageText.text = "User deleted successfully!";  
+            StartCoroutine(removeText());              
+          }
+        
     }
+    IEnumerator removeText(){
+        yield return new WaitForSeconds(3);
+        messageText.text = "";
 
-   /*
-    public void VerifyInputs(){
-        submitButton.interactable = (nameField.text.Length >= 4 && passwordField.text.Length >=4);
+        dropDownMethod.CallRequest();
     }
-
-    //Logout test
-    public void logOut(){
-        DBmanager.LogOut();
-    }
-    */
 }
