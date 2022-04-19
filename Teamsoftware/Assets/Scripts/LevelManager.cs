@@ -44,6 +44,10 @@ public class LevelManager : MonoBehaviour
     public int newPos = 3;
     public List<Transform> positions = new List<Transform>();
 
+    [Header("LevelTitle")]
+    public Text pauseScreenTitle;
+    public int currentLevelId;
+
     void Start()
     {
         questionPanel.SetActive(false);
@@ -51,6 +55,7 @@ public class LevelManager : MonoBehaviour
         loseScreen.SetActive(false);
         ShowQuestion();
         questions = FindObjectOfType<QuestionData>().questions;
+        pauseScreenTitle.text = SceneManager.GetActiveScene().name + " - Paused";
     }
 
     void Update()
@@ -123,6 +128,7 @@ public class LevelManager : MonoBehaviour
         {
             questionPanel.SetActive(false);
             winScreen.SetActive(true);
+            FindObjectOfType<ScoreSaving>().SaveScore(0, questionsCorrect);
             winProgress = GameObject.Find("WinProgress").GetComponent<Text>();
             winProgress.text = "Great Job! You Win! \n\nQuestions Correct: " +
                 questionsCorrect.ToString() + "/" + (questions.Count).ToString();
