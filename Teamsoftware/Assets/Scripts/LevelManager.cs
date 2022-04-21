@@ -50,6 +50,11 @@ public class LevelManager : MonoBehaviour
 
     void Start()
     {
+        if (FindObjectOfType<ScoreSaving>() != null)
+        {
+            FindObjectOfType<ScoreSaving>().SceneChanged();
+        }
+
         questionPanel.SetActive(false);
         winScreen.SetActive(false);
         loseScreen.SetActive(false);
@@ -128,7 +133,7 @@ public class LevelManager : MonoBehaviour
         {
             questionPanel.SetActive(false);
             winScreen.SetActive(true);
-            FindObjectOfType<ScoreSaving>().SaveScore(0, questionsCorrect);
+            FindObjectOfType<ScoreSaving>().SaveScore(questionsCorrect);
             winProgress = GameObject.Find("WinProgress").GetComponent<Text>();
             winProgress.text = "Great Job! You Win! \n\nQuestions Correct: " +
                 questionsCorrect.ToString() + "/" + (questions.Count).ToString();
@@ -256,9 +261,9 @@ public class LevelManager : MonoBehaviour
     /// <summary>
     /// Loads the next level in the sequence, and should be simply deactivated in the final level
     /// </summary>
-    public void LoadNextLevel(int _level)
+    public void LoadNextLevel(string _levelName)
     {
-        SceneManager.LoadScene(_level);
+        SceneManager.LoadScene(_levelName);
     }
 
 }

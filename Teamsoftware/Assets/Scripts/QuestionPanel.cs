@@ -57,7 +57,7 @@ public class QuestionPanel : MonoBehaviour
 
     void SubmitAnswer(Button btn)
     {
-        print("Answer: " + selectedValue.ToString());
+        // print("Answer: " + selectedValue.ToString());
         // IF Answer correct...
         if (selectedValue == question.answer)
         {

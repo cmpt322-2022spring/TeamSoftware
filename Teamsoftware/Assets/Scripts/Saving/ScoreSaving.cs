@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ScoreSaving : MonoBehaviour
 {
     public static ScoreSaving scoreSaving;
+    public int currLevel;
 
     [Header("Scores To Save")]
     public int totalScore;
@@ -27,11 +29,29 @@ public class ScoreSaving : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(gameObject);
+        
         // load the levels scores
         totalScore = PlayerPrefs.GetInt("totalScore");
         levelScore1 = PlayerPrefs.GetInt("levelScore1");
         levelScore2 = PlayerPrefs.GetInt("levelScore2");
-        print("loading");
+    }
+
+    public void SceneChanged()
+    {
+        // Set current level Id
+        if (SceneManager.GetActiveScene().name == "Level 1")
+        {
+            currLevel = 0;
+        }
+        else if (SceneManager.GetActiveScene().name == "Level 2")
+        {
+            currLevel = 1;
+        }
+        else
+        {
+            // default case to check for errors
+            currLevel = -1;
+        }
     }
 
     // Update is called once per frame
@@ -43,11 +63,10 @@ public class ScoreSaving : MonoBehaviour
     /// <summary>
     /// Saves the score of the level and checks if there is a better score
     /// </summary>
-    /// <param name="_levelId">The level id is used to determine which level to save</param>
     /// <param name="_newScore">The new score is used to determine if the player has a new high score</param>
-    public void SaveScore(int _levelId, int _newScore)
+    public void SaveScore(int _newScore)
     {
-        switch (_levelId)
+        switch (currLevel)
         {
             case 0:
                 if (_newScore > levelScore1)
@@ -59,7 +78,7 @@ public class ScoreSaving : MonoBehaviour
             case 1:
                 if (_newScore > levelScore2)
                 {
-                    levelScore1 = _newScore;
+                    levelScore2 = _newScore;
                     PlayerPrefs.SetInt("levelScore2", levelScore2);
                 }
                 break;

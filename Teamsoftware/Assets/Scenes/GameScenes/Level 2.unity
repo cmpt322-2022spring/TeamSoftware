@@ -951,7 +951,6 @@ MonoBehaviour:
   - {fileID: 1322521412}
   - {fileID: 1926716831}
   pauseScreenTitle: {fileID: 1880754657}
-  currentLevelId: 0
 --- !u!4 &196598855
 Transform:
   m_ObjectHideFlags: 0
@@ -2990,7 +2989,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7eaf700ce43106459d6ca10161a4c57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currLevel: 0
   totalScore: 0
   levelScore1: 0
   levelScore2: 0
@@ -3793,7 +3791,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &873286424
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3861,13 +3859,13 @@ MonoBehaviour:
       - m_Target: {fileID: 196598854}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: LoadNextLevel
-        m_Mode: 5
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 4
           m_FloatArgument: 0
-          m_StringArgument: Level 2
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &873286426
