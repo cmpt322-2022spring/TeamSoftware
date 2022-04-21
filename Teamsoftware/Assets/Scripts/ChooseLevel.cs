@@ -26,4 +26,8 @@ public class ChooseLevel : MonoBehaviour
     {
         levelPage.GetComponent<RectTransform>().anchoredPosition = new Vector2(500f, 500f);
     }
+    public void loadLevel(string levelName)
+    {
+        SceneManager.LoadScene(levelName);
+    }
 }
