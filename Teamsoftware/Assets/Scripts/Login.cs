@@ -29,7 +29,7 @@ public class Login : MonoBehaviour
         //Checks to see if login works, and updates database to show score
         if(www.downloadHandler.text[0] == '0'){
             DBmanager.username = nameField.text;
-            DBmanager.score = www.downloadHandler.text[1];
+            DBmanager.score = www.downloadHandler.text[1] - 48;
             UnityEngine.SceneManagement.SceneManager.LoadScene(3);
         }
         else {

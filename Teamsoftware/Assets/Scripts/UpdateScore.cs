@@ -8,16 +8,18 @@ public class UpdateScore : MonoBehaviour
 {
     
     public string nameField = DBmanager.username;
-    public int score = 10;
+    public int score;
     public Text updateText;
     public Button submitButton;
 
     public void CallUpdate() {
+        score += 10;
         StartCoroutine(updateScore());
 
     }
     IEnumerator updateScore() {
 
+        
         //Adds form 
         WWWForm form = new WWWForm();
         form.AddField("name", nameField);
