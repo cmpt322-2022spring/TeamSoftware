@@ -12,11 +12,11 @@ public class LogOut : MonoBehaviour
     {
             //Sets username = null
             DBmanager.LogOut();
-            SceneManager.LoadScene(0); 
+            SceneManager.LoadScene("InitialLogin"); 
     }
     public void loggingOutTeach() {
          DBmanagerTeach.LogOut();
-         SceneManager.LoadScene(0);
+         SceneManager.LoadScene("InitialLogin");
     }
 
     

@@ -18,15 +18,15 @@ public class LoginScript : MonoBehaviour
     
     public void GoToRegister()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("registrationMenu");
     }
     public void GoToRegisterTeach()
     {
-        SceneManager.LoadScene(7);
+        SceneManager.LoadScene("TeacherRegisterMenu");
     }
     public void GoToTeacher()
     {
-        SceneManager.LoadScene(5);
+        SceneManager.LoadScene("TestAccessTeacher");
     }
 }
  
