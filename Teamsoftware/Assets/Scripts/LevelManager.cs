@@ -32,6 +32,9 @@ public class LevelManager : MonoBehaviour
     public int questionsCorrect;
     public Text winProgress;
 
+    // Pause System
+    public GameObject pauseScreen;
+
     // Player Movement
     public Transform player;
     public float moveSpeed = 10f;
@@ -41,13 +44,23 @@ public class LevelManager : MonoBehaviour
     public int newPos = 3;
     public List<Transform> positions = new List<Transform>();
 
+    [Header("LevelTitle")]
+    public Text pauseScreenTitle;
+    public int currentLevelId;
+
     void Start()
     {
+        if (FindObjectOfType<ScoreSaving>() != null)
+        {
+            FindObjectOfType<ScoreSaving>().SceneChanged();
+        }
+
         questionPanel.SetActive(false);
         winScreen.SetActive(false);
         loseScreen.SetActive(false);
         ShowQuestion();
         questions = FindObjectOfType<QuestionData>().questions;
+        pauseScreenTitle.text = SceneManager.GetActiveScene().name + " - Paused";
     }
 
     void Update()
@@ -93,6 +106,12 @@ public class LevelManager : MonoBehaviour
             correctAnswerPanel.GetComponentInChildren<Button>().interactable = false;
         }
 
+        // Pause Game with "P"
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            PauseGame();
+        }
+
     }
 
     /// <summary>
@@ -114,15 +133,16 @@ public class LevelManager : MonoBehaviour
         {
             questionPanel.SetActive(false);
             winScreen.SetActive(true);
+            FindObjectOfType<ScoreSaving>().SaveScore(questionsCorrect);
             winProgress = GameObject.Find("WinProgress").GetComponent<Text>();
             winProgress.text = "Great Job! You Win! \n\nQuestions Correct: " +
-                questionsCorrect.ToString() + "/" + (questions.Count).ToString();   
+                questionsCorrect.ToString() + "/" + (questions.Count).ToString();
         }
         else
         {
             questionPanelTimer = questionPanelTime;
         }
-        
+
     }
 
     /// <summary>
@@ -142,6 +162,8 @@ public class LevelManager : MonoBehaviour
             Text answerTitle = GameObject.Find("AnswerTitle").GetComponent<Text>();
             answerTitle.text = "Correct!";
             answerTitle.color = Color.green;
+            // Play Success Sound
+            FindObjectOfType<SoundController>().PlaySuccessClip();
         }
         else
         {
@@ -168,7 +190,6 @@ public class LevelManager : MonoBehaviour
             questionId++;
             finalQuestion = true;
         }
-
     }
 
     /// <summary>
@@ -177,7 +198,41 @@ public class LevelManager : MonoBehaviour
     /// </summary>
     public void Restart()
     {
+        if (Time.timeScale == 0)
+        {
+            Time.timeScale = 1;
+        }
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    /// <summary>
+    /// Returns the player to the main menu
+    /// </summary>
+    public void MainMenu()
+    {
+        if (Time.timeScale == 0)
+        {
+            Time.timeScale = 1;
+        }
+        SceneManager.LoadScene(3);
+    }
+
+    /// <summary>
+    /// Pauses the game and sets the pause screen to be active
+    /// </summary>
+    public void PauseGame()
+    {
+        pauseScreen.SetActive(true);
+        Time.timeScale = 0;
+    }
+
+    /// <summary>
+    /// Unpauses the game and sets the pause screen to be inactive
+    /// </summary>
+    public void UnPauseGame()
+    {
+        Time.timeScale = 1;
+        pauseScreen.SetActive(false);
     }
 
     /// <summary>
@@ -201,6 +256,14 @@ public class LevelManager : MonoBehaviour
         {
             print("ERROR! _pos must be +1 or -1 ONLY!");
         }
+    }
+
+    /// <summary>
+    /// Loads the next level in the sequence, and should be simply deactivated in the final level
+    /// </summary>
+    public void LoadNextLevel(string _levelName)
+    {
+        SceneManager.LoadScene(_levelName);
     }
 
 }
