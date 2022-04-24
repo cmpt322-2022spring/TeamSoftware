@@ -8,6 +8,7 @@ public class LoginScript : MonoBehaviour
     public Text playerDisplay;
     public Text scoreDisplay;
    
+    /*
     private void Start() 
     {
         if(DBmanager.LoggedIn){
@@ -15,6 +16,7 @@ public class LoginScript : MonoBehaviour
             scoreDisplay.text = "Score: " + DBmanager.score;
         }
     }
+    */
     
     public void GoToRegister()
     {
@@ -26,7 +28,7 @@ public class LoginScript : MonoBehaviour
     }
     public void GoToTeacher()
     {
-        SceneManager.LoadScene("TestAccessTeacher");
+        SceneManager.LoadScene("AccessCodeTeacher");
     }
 }
  
