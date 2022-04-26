@@ -33,6 +33,7 @@ public class Login : MonoBehaviour
             DBmanager.score = int.Parse(resultsRequest[1]);
             UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu2");
         }
+        
         else {
             Debug.Log("User login failed. Error #" + www.downloadHandler.text);
         }

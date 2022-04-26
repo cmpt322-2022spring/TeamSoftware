@@ -9,7 +9,6 @@ public class DropDownMethod : MonoBehaviour
     public Dropdown _dropDown;
     List<string> m_DropOptions = new List<string> { "Option 1", "Option 2"};
     // Start is called before the first frame update
-    //public Dropdown dropdown;
     void Start()
     {
         //Post 
