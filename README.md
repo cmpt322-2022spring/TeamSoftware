@@ -1,1 +1,3 @@
 # TeamSoftware
+
+Sofware engineering project at Wesminster College: Consist of a simple math game targeted at 1st and 2nd graders. For the game a group of three students came up with a simple 2D running game. The goal of the game was for the character to run from an object that wanted to catch them. To run from the object, the user would have to answer simple math games and the progress dependended on the user answering correctly. For the project we also wanted to have a way for teachers to access their students progress, add and remove students, and for the students themselves to have a menu with different options to choose from.
